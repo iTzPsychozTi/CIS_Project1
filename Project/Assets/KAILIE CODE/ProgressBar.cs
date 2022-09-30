@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Corinne Bond -> Tracks progress of how many objects have been collected
 [ExecuteInEditMode] 
 public class ProgressBar : MonoBehaviour
 {
