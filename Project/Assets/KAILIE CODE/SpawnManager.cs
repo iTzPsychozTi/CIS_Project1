@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * (Simfara, Kailie)
+ * (Group project 1)
+ * (Spawns objects one at a time)
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

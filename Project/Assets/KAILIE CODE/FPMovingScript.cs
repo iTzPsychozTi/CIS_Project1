@@ -21,6 +21,7 @@ public class FPMovingScript : MonoBehaviour
 	{
 		characterController = GetComponent<CharacterController>();
 		cam = Camera.main;
+        //ADD starting postion so it resets even after game is replayed
 	}
 
 	void Update()
@@ -31,7 +32,7 @@ public class FPMovingScript : MonoBehaviour
 		float vertical = Input.GetAxis("Vertical") * MovementSpeed;
 		characterController.Move((cam.transform.right * horizontal + cam.transform.forward * vertical) * Time.deltaTime);
 
-		// Gravity (Do we need this in our game? Discuss with group)
+		// Gravity
 		if (characterController.isGrounded)
 		{
 			velocity = 0;
@@ -41,5 +42,6 @@ public class FPMovingScript : MonoBehaviour
 			velocity -= Gravity * Time.deltaTime;
 			characterController.Move(new Vector3(0, velocity, 0));
 		}
+        //ADD jumping?
 	}
 }

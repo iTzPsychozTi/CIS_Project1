@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * (Kailie Otto)
+ * (Group project 1)
+ * (Old unused code to test radius around objects, here for safe keeping)
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
