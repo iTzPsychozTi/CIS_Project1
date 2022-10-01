@@ -9,17 +9,18 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    const int N = 10; // 10 items to be collected
+    public const int N = 10; // 10 items to be collected
     public GameObject[] itemPrefab = new GameObject[N];
     public Transform[] spawnLocation;
 
-    int itemTracker = 0;
+    public int itemTracker;
 
     private MouseClick mouseClickScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        itemTracker = 0;
         spawnTargetItems();
     }
 
