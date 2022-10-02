@@ -1,5 +1,5 @@
 ﻿/*
- * (Kailie Otto)
+ * (Kailie Otto, Simfara)
  * (Group project 1)
  * (Controls player clicking on objects)
  */
@@ -12,7 +12,7 @@ public class MouseClick : MonoBehaviour
     bool closeEnough;
     //public GameObject radius;
     //private trigger check;
-    private float range = 5.0f;
+    private float range = 2.0f;
     private Transform ob;
     private Transform player;
 
