@@ -15,25 +15,39 @@ public class FPMovingScript : MonoBehaviour
 	public float Gravity = 9.8f;
 	private float velocity = 0;
 
+	public bool isMoving = false;
+
 	private Camera cam;
+
 
 	private void Start()
 	{
 		characterController = GetComponent<CharacterController>();
 		cam = Camera.main;
-        //ADD starting postion so it resets even after game is replayed
+		//ADD starting postion so it resets even after game is replayed
+
+
 	}
 
 	void Update()
 	{
-
 		// player movement - forward, backward, left, right
 		float horizontal = Input.GetAxis("Horizontal") * MovementSpeed;
 		float vertical = Input.GetAxis("Vertical") * MovementSpeed;
 		characterController.Move((cam.transform.right * horizontal + cam.transform.forward * vertical) * Time.deltaTime);
 
-		// Gravity
-		if (characterController.isGrounded)
+		// Determines whether the player is moving or not
+		if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+        {
+			isMoving = true;
+        }
+		else
+        {
+			isMoving = false;
+        }
+
+			// Gravity
+			if (characterController.isGrounded)
 		{
 			velocity = 0;
 		}
