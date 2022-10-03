@@ -16,6 +16,8 @@ public class MouseClick : MonoBehaviour
     private Transform ob;
     private Transform player;
 
+    public ParticleSystem confetti;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class MouseClick : MonoBehaviour
             {
                 Debug.Log("clicked");
                 Destroy(gameObject);
+                ParticleSystem itemFound = Instantiate(confetti, transform.position, transform.rotation);
             }
         }
     }
