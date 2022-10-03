@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c1e113871d847aeb1b1f1bf3520a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collected: 0
   confetti: {fileID: 2507985994617002731, guid: 55216d1f2871c0b42af53c2c4c76816f,
     type: 3}
 --- !u!82 &1700146232241428656
@@ -121,7 +122,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.01
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
