@@ -7,6 +7,8 @@ TagManager:
   - SpawnManager
   - TargetItem
   - ProgressBar
+  - Timer
+  - GameOverText
   layers:
   - Default
   - TransparentFX

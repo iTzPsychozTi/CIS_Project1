@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 //Corinne Bond -> Controls UI Timer that tells user how much time is left
 public class Timer : MonoBehaviour
 {
-    public float timeValue = 600;
+    public float timeValue;
     public Text timerText;
+    public bool outOfTime;
 
+    private void Start()
+    {
+        timeValue = 600;
+        outOfTime = false;
+    }
 
     void Update()
     {
@@ -19,6 +24,11 @@ public class Timer : MonoBehaviour
 
         displayTime(timeValue);
         //restart timer -> continue gives 5 more minutes, restart gives the full 10
+
+        if (timeValue <= 0)
+        {
+            outOfTime = true;
+        }
          
     }
 
