@@ -15,10 +15,12 @@ public class MouseClick : MonoBehaviour
     private float range = 2.0f;
     private Transform ob;
     private Transform player;
+    public int collected;
 
     // Start is called before the first frame update
     void Start()
     {
+        collected = 0;
         closeEnough = false;
         ob = this.transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -40,6 +42,7 @@ public class MouseClick : MonoBehaviour
             if (Distance() < range)
             {
                 Debug.Log("clicked");
+                collected++;
                 Destroy(gameObject);
             }
         }
