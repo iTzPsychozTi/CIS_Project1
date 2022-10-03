@@ -31,12 +31,9 @@ public class SpawnManager : MonoBehaviour
             itemTracker++;
             spawnTargetItems();
         }
-       
-
     }
     void spawnTargetItems()
     {
-
         Instantiate(itemPrefab[itemTracker], spawnLocation[itemTracker].transform.position, Quaternion.Euler(0, 0, 0));
     }
 }
