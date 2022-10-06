@@ -12,28 +12,32 @@ public class SpawnManager : MonoBehaviour
     public const int N = 9;
     public GameObject[] itemPrefab;
     public Transform[] spawnLocation;
-
+    public MouseClick mouseClickScript;
     public int itemTracker;
 
     // Start is called before the first frame update
     void Start()
     {
         itemTracker = 0;
-        spawnTargetItems();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if the current item has been "found" destroy the current game object,increment the tracker and spawn the next item
-        if(itemTracker <= N)
+        //spawn the current item, if the item is "found" destroy the current game object,increment the tracker and spawn the next item
+        for( int i=0; i<=N; i++)
         {
-            itemTracker++;
-            spawnTargetItems();
+            Instantiate(itemPrefab[i], spawnLocation[i].transform.position, Quaternion.Euler(0, 0, 0));
+            Debug.Log( i + " item spawned" );
+
+            // @Kailie add/call the code for:  if they find the object it gets removed from the scene
         }
+       
     }
-    void spawnTargetItems()
+
+    /*void spawnTargetItems(int tracker)
     {
-        Instantiate(itemPrefab[itemTracker], spawnLocation[itemTracker].transform.position, Quaternion.Euler(0, 0, 0));
-    }
+        Instantiate(itemPrefab[tracker], spawnLocation[tracker].transform.position, Quaternion.Euler(0, 0, 0));
+    }*/
 }
