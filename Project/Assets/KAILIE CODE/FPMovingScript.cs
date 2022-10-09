@@ -56,6 +56,5 @@ public class FPMovingScript : MonoBehaviour
 			velocity -= Gravity * Time.deltaTime;
 			characterController.Move(new Vector3(0, velocity, 0));
 		}
-        //ADD jumping?
 	}
 }

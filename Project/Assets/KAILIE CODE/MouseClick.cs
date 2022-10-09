@@ -12,10 +12,11 @@ public class MouseClick : MonoBehaviour
     bool closeEnough;
     //public GameObject radius;
     //private trigger check;
-    private float range = 2.0f;
+    private float range = 3.0f;
     private Transform ob;
     private Transform player;
     public int collected;
+    public bool found;
 
     public ParticleSystem confetti;
 
@@ -24,6 +25,7 @@ public class MouseClick : MonoBehaviour
     {
         collected = 0;
         closeEnough = false;
+        found = false;
         ob = this.transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         //check = radius.GetComponent<trigger>();
@@ -45,7 +47,8 @@ public class MouseClick : MonoBehaviour
             {
                 Debug.Log("clicked");
                 collected++;
-                Destroy(gameObject);
+                found = true;
+                //Destroy(gameObject);
                 ParticleSystem itemFound = Instantiate(confetti, transform.position, transform.rotation);
             }
         }
