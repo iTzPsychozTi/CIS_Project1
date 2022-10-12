@@ -27,8 +27,12 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        spawnTargetItems(itemTracker);
+        itemTracker++;
+
         //spawn the current item, if the item is "found" destroy the current game object,increment the tracker and spawn the next item
-        for( int i=0; i<=N; i++) //<------- EVERY frame it is starting a new iteration of this loop :/
+        /*for( int i=0; i<=N; i++) //<------- EVERY frame it is starting a new iteration of this loop :/
         {
             Instantiate(itemPrefab[i], spawnLocation[i].transform.position, Quaternion.Euler(0, 0, 0));
             Debug.Log( i + " item spawned" );
@@ -39,14 +43,14 @@ public class SpawnManager : MonoBehaviour
                 Destroy(itemPrefab[i]);
                 itemTracker++;
             }
-        }
+        }*/
 
     }
 
-    /*void spawnTargetItems(int tracker)
+    void spawnTargetItems(int tracker)
     {
         Instantiate(itemPrefab[tracker], spawnLocation[tracker].transform.position, Quaternion.Euler(0, 0, 0));
-    }*/
+    }
 
 
 }
