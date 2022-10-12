@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ * (Corinne, Kailie)
+ * (Group project 1)
+ * (Controls progress bar)
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +21,8 @@ public class ProgressBar : MonoBehaviour
     public int max;
     public int min;
 
+    public int collected;
+
     public bool won;
     public bool gameOver;
     bool outOfTime;
@@ -22,7 +30,7 @@ public class ProgressBar : MonoBehaviour
 
     SpawnManager spawny;
     Timer timey;
-    MouseClick click;
+    //MouseClick click;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,11 +38,12 @@ public class ProgressBar : MonoBehaviour
         gameOver = false;
         max = 10;
         current = 0;
+        collected = 0;
 
         spawny = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
         timey = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
         gameStatus = GameObject.FindGameObjectWithTag("GameOverText").GetComponent<Text>();
-        click = GameObject.FindGameObjectWithTag("MouseClick").GetComponent<MouseClick>();
+        //click = GameObject.FindGameObjectWithTag("MouseClick").GetComponent<MouseClick>();
     }
 
     // Update is called once per frame
@@ -42,7 +51,7 @@ public class ProgressBar : MonoBehaviour
     {
     
             getCurrentFill();
-            current = click.collected;
+            current = collected;
             outOfTime = timey.outOfTime;
       
         if ( current == max)

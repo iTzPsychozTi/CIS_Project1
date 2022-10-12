@@ -1,5 +1,5 @@
 ﻿/*
- * (Kailie Otto, Simfara)
+ * (Kailie, Simfara)
  * (Group project 1)
  * (Controls player clicking on objects)
  */
@@ -15,19 +15,21 @@ public class MouseClick : MonoBehaviour
     private float range = 3.0f;
     private Transform ob;
     private Transform player;
-    public int collected;
+    //public int collected;
     public bool found;
+    private ProgressBar progressBarScript;
 
     public ParticleSystem confetti;
 
     // Start is called before the first frame update
     void Start()
     {
-        collected = 0;
+        //collected = 0;
         closeEnough = false;
         found = false;
         ob = this.transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        progressBarScript = GameObject.FindGameObjectWithTag("Progress").GetComponent<ProgressBar>();
         //check = radius.GetComponent<trigger>();
     }
 
@@ -46,8 +48,9 @@ public class MouseClick : MonoBehaviour
             if (Distance() < range)
             {
                 Debug.Log("clicked");
-                collected++;
+                //collected++;
                 found = true;
+                progressBarScript.collected++;
                 Destroy(gameObject);
                 ParticleSystem itemFound = Instantiate(confetti, transform.position, transform.rotation);
             }

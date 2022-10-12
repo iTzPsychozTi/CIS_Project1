@@ -9,6 +9,7 @@ TagManager:
   - ProgressBar
   - Timer
   - GameOverText
+  - Progress
   layers:
   - Default
   - TransparentFX
