@@ -48,7 +48,7 @@ public class MouseClick : MonoBehaviour
                 Debug.Log("clicked");
                 collected++;
                 found = true;
-                //Destroy(gameObject);
+                Destroy(gameObject);
                 ParticleSystem itemFound = Instantiate(confetti, transform.position, transform.rotation);
             }
         }
