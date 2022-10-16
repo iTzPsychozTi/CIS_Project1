@@ -30,28 +30,30 @@ public class ProgressBar : MonoBehaviour
 
     SpawnManager spawny;
     Timer timey;
-    //MouseClick click;
+    MouseClick click;
+
     // Start is called before the first frame update
     void Start()
     {
         won = false;
         gameOver = false;
-        max = 10;
+        max = 9;
         current = 0;
         collected = 0;
+        min = 0;
 
         spawny = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
         timey = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
         gameStatus = GameObject.FindGameObjectWithTag("GameOverText").GetComponent<Text>();
-        //click = GameObject.FindGameObjectWithTag("MouseClick").GetComponent<MouseClick>();
+        click = GameObject.FindGameObjectWithTag("MouseClick").GetComponent<MouseClick>();
     }
 
     // Update is called once per frame
     void Update()
     {
-    
+
+            current = collected;      
             getCurrentFill();
-            current = collected;
             outOfTime = timey.outOfTime;
       
         if ( current == max)
@@ -73,8 +75,8 @@ public class ProgressBar : MonoBehaviour
 
     void getCurrentFill()
     {
-        float currentOffset = current - min;
-        float maximumOffset = max - min;
+        //float currentOffset = current - min;
+        //sfloat maximumOffset = max - min;
         float fillAmount = (float)current / (float)max; 
         mask.fillAmount = fillAmount;
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -879,10 +879,10 @@ MonoBehaviour:
   mask: {fileID: 1151036178}
   fill: {fileID: 1161317201}
   color: {r: 0.20392156, g: 0.4676668, b: 0.7058824, a: 0.98039216}
-  current: 0
-  max: 10
+  current: 2
+  max: 9
   min: 0
-  collected: 0
+  collected: 2
   won: 0
   gameOver: 0
   gameStatus: {fileID: 590240044}
@@ -3023,9 +3023,10 @@ GameObject:
   m_Component:
   - component: {fileID: 482973096}
   - component: {fileID: 482973097}
+  - component: {fileID: 482973098}
   m_Layer: 0
   m_Name: click
-  m_TagString: Untagged
+  m_TagString: MouseClick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3092,6 +3093,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &482973098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482973095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c1e113871d847aeb1b1f1bf3520a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  found: 0
+  confetti: {fileID: 0}
 --- !u!1001 &486848513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3925,7 +3940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &590240042
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3942,7 +3957,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24, y: -44}
+  m_AnchoredPosition: {x: -16, y: -44}
   m_SizeDelta: {x: 450.43488, y: 162.13916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &590240044
@@ -5549,7 +5564,7 @@ GameObject:
   - component: {fileID: 796570106}
   m_Layer: 5
   m_Name: TimerText
-  m_TagString: Untagged
+  m_TagString: Timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8095,7 +8110,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 0.22222222
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

@@ -11,6 +11,7 @@ TagManager:
   - GameOverText
   - Progress
   - cursor
+  - MouseClick
   layers:
   - Default
   - TransparentFX

@@ -52,9 +52,9 @@ public class MouseClick : MonoBehaviour
             if (Distance() < range)
             {
                 Debug.Log("clicked");
-                //collected++;
+                
                 found = true;
-                progressBarScript.collected++;
+                progressBarScript.collected += 1;
                 cursorShowScript.closeEnough = false;
                 Destroy(gameObject);
                 ParticleSystem itemFound = Instantiate(confetti, transform.position, transform.rotation);
