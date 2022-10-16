@@ -17,25 +17,31 @@ public class LookAround : MonoBehaviour
     public float verticalSpeed = 2f;
     private float xRotation = 0.0f;
     private float yRotation = 0.0f;
+    private ProgressBar progressBarScript;
+
     private Camera cam;
 
     void Start()
     {
         cam = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
+        progressBarScript = GameObject.FindGameObjectWithTag("Progress").GetComponent<ProgressBar>();
     }
 
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * horizontalSpeed;
-        float mouseY = Input.GetAxis("Mouse Y") * verticalSpeed;
+        if (!progressBarScript.gameOver)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * horizontalSpeed;
+            float mouseY = Input.GetAxis("Mouse Y") * verticalSpeed;
 
-        //clamps rotation
-        yRotation += mouseX;
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90, 90);
+            //clamps rotation
+            yRotation += mouseX;
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90, 90);
 
-        cam.transform.eulerAngles = new Vector3(xRotation, yRotation, 0.0f);
+            cam.transform.eulerAngles = new Vector3(xRotation, yRotation, 0.0f);
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

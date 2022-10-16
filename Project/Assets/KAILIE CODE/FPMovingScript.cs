@@ -15,7 +15,9 @@ public class FPMovingScript : MonoBehaviour
 	public float Gravity = 9.8f;
 	private float velocity = 0;
 
-	public bool isMoving = false;
+    private ProgressBar progressBarScript;
+
+    public bool isMoving = false;
 
 	private Camera cam;
 
@@ -23,7 +25,8 @@ public class FPMovingScript : MonoBehaviour
 	private void Start()
 	{
 		characterController = GetComponent<CharacterController>();
-		cam = Camera.main;
+        progressBarScript = GameObject.FindGameObjectWithTag("Progress").GetComponent<ProgressBar>();
+        cam = Camera.main;
         //ADD starting postion so it resets even after game is replayed
         transform.position = new Vector3(13, 1, -7);
 
@@ -32,30 +35,35 @@ public class FPMovingScript : MonoBehaviour
 
 	void Update()
 	{
-		// player movement - forward, backward, left, right
-		float horizontal = Input.GetAxis("Horizontal") * MovementSpeed;
-		float vertical = Input.GetAxis("Vertical") * MovementSpeed;
-		characterController.Move((cam.transform.right * horizontal + cam.transform.forward * vertical) * Time.deltaTime);
-
-		// Determines whether the player is moving or not
-		if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+        if (!progressBarScript.gameOver)
         {
-			isMoving = true;
-        }
-		else
-        {
-			isMoving = false;
-        }
 
-			// Gravity
-			if (characterController.isGrounded)
-		{
-			velocity = 0;
-		}
-		else
-		{
-			velocity -= Gravity * Time.deltaTime;
-			characterController.Move(new Vector3(0, velocity, 0));
-		}
+            // player movement - forward, backward, left, right
+            float horizontal = Input.GetAxis("Horizontal") * MovementSpeed;
+            float vertical = Input.GetAxis("Vertical") * MovementSpeed;
+            characterController.Move((cam.transform.right * horizontal + cam.transform.forward * vertical) * Time.deltaTime);
+
+            // Determines whether the player is moving or not
+            if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+            {
+                isMoving = true;
+            }
+            else
+            {
+                isMoving = false;
+            }
+
+            // Gravity
+            if (characterController.isGrounded)
+            {
+                velocity = 0;
+            }
+            else
+            {
+                velocity -= Gravity * Time.deltaTime;
+                characterController.Move(new Vector3(0, velocity, 0));
+            }
+
+        }
 	}
 }
