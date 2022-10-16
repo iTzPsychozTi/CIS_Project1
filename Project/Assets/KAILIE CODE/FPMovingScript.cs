@@ -24,10 +24,11 @@ public class FPMovingScript : MonoBehaviour
 	{
 		characterController = GetComponent<CharacterController>();
 		cam = Camera.main;
-		//ADD starting postion so it resets even after game is replayed
+        //ADD starting postion so it resets even after game is replayed
+        transform.position = new Vector3(13, 1, -7);
 
 
-	}
+    }
 
 	void Update()
 	{

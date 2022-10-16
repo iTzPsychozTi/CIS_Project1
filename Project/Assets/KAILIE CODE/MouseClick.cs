@@ -15,9 +15,12 @@ public class MouseClick : MonoBehaviour
     private float range = 3.0f;
     private Transform ob;
     private Transform player;
+
     //public int collected;
     public bool found;
     private ProgressBar progressBarScript;
+
+    private cursorShow cursorShowScript;
 
     public ParticleSystem confetti;
 
@@ -30,6 +33,7 @@ public class MouseClick : MonoBehaviour
         ob = this.transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         progressBarScript = GameObject.FindGameObjectWithTag("Progress").GetComponent<ProgressBar>();
+        cursorShowScript = GameObject.FindGameObjectWithTag("cursor").GetComponent<cursorShow>();
         //check = radius.GetComponent<trigger>();
     }
 
@@ -37,11 +41,11 @@ public class MouseClick : MonoBehaviour
     void Update()
     {
         //if (check.triggered)
-        /*if (Distance()< range)
+        if (Distance()< range)
         {
             Debug.Log("mouse click able to happen");
-           closeEnough = true;
-        }*/
+            cursorShowScript.closeEnough = true;
+        }
         if (Input.GetMouseButtonDown(0))
         {
             // Destroy the gameObject after clicking on it
@@ -51,6 +55,7 @@ public class MouseClick : MonoBehaviour
                 //collected++;
                 found = true;
                 progressBarScript.collected++;
+                cursorShowScript.closeEnough = false;
                 Destroy(gameObject);
                 ParticleSystem itemFound = Instantiate(confetti, transform.position, transform.rotation);
             }
