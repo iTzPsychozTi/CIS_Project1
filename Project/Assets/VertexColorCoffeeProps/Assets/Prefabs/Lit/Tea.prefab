@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 82370768973882278}
   m_Layer: 0
   m_Name: Tea
-  m_TagString: Untagged
+  m_TagString: TargetItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c1e113871d847aeb1b1f1bf3520a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  found: 0
   confetti: {fileID: 2507985994617002731, guid: 55216d1f2871c0b42af53c2c4c76816f,
     type: 3}
 --- !u!82 &82370768973882278
@@ -229,7 +230,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a89d61d8b17725042bf17dfe5f0be1c5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.01
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0

@@ -14,22 +14,27 @@ public class SpawnManager : MonoBehaviour
     public Transform[] spawnLocation;
     private MouseClick mouseClickScript;
     public int itemTracker;
+    private ProgressBar progressBarScript;
 
     // Start is called before the first frame update
     void Start()
     {
         itemTracker = 0;
         mouseClickScript = GameObject.FindGameObjectWithTag("TargetItem").GetComponent<MouseClick>();
-
+        progressBarScript = GameObject.FindGameObjectWithTag("Progress").GetComponent<ProgressBar>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (itemTracker == progressBarScript.collected)
+        {   
+            spawnTargetItems(itemTracker);
+            itemTracker++;
 
-        spawnTargetItems(itemTracker);
-        itemTracker++;
+        }
+        
 
         //spawn the current item, if the item is "found" destroy the current game object,increment the tracker and spawn the next item
         /*for( int i=0; i<=N; i++) //<------- EVERY frame it is starting a new iteration of this loop :/

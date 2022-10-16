@@ -37,7 +37,7 @@ public class ProgressBar : MonoBehaviour
     {
         won = false;
         gameOver = false;
-        max = 9;
+        max = 10;
         current = 0;
         collected = 0;
         min = 0;
@@ -52,7 +52,8 @@ public class ProgressBar : MonoBehaviour
     void Update()
     {
 
-            current = collected;      
+            current = collected;
+            Debug.Log(current);
             getCurrentFill();
             outOfTime = timey.outOfTime;
       
@@ -60,11 +61,11 @@ public class ProgressBar : MonoBehaviour
         {
             won = true;
             gameOver = true;
-            gameStatus.text = "You've Won!\n Press A to Play Again!";
+            gameStatus.text = "You've Found All 10 Items!\n Press A to Play Again!";
         }else if (timey.outOfTime == true)
         {
             gameOver = true;
-            gameStatus.text = "You've Ran out of Time!\n Press A to Restart!";
+            gameStatus.text = "You Ran out of Time!\n Press A to Restart!";
         }
 
         if (gameOver && Input.GetKeyDown(KeyCode.A))
